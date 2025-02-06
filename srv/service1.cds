@@ -10,5 +10,6 @@ service Service_Admin
 
 annotate Service_Admin with @requires :
 [
+    'Admin',
     'authenticated-user'
 ];
