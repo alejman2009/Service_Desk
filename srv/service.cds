@@ -3,7 +3,11 @@ using { Service_Desk as my } from '../db/schema.cds';
 @path : '/service/Service_User'
 service Service_User
 {
-    @odata.draft.enabled
+    annotate Solicitudes with @restrict :
+    [
+        { grant : [ 'READ', 'CREATE' ], to : [ 'authenticated-user' ] }
+    ];
+
     entity Solicitudes as
         projection on my.Solicitudes
         {
@@ -17,8 +21,3 @@ service Service_User
             Urgencia
         };
 }
-
-annotate Service_User with @requires :
-[
-    'authenticated-user'
-];

@@ -1,6 +1,26 @@
 {
-  "scopes": [],
-  "attributes": [],
-  "role-templates": [],
-  "authorities-inheritance": false
+  "xsappname": "servicedesk-app",
+  "tenant-mode": "shared",
+  "scopes": [
+    {
+      "name": "$XSAPPNAME.Admin",
+      "description": "Permite la gestión de solicitudes y tipos de solicitudes"
+    },
+    {
+      "name": "$XSAPPNAME.User",
+      "description": "Permite a los usuarios crear y ver sus propias solicitudes"
+    }
+  ],
+  "role-templates": [
+    {
+      "name": "Admin",
+      "description": "Rol de Administrador",
+      "scope-references": ["$XSAPPNAME.Admin"]
+    },
+    {
+      "name": "User",
+      "description": "Rol de Usuario",
+      "scope-references": ["$XSAPPNAME.User"]
+    }
+  ]
 }

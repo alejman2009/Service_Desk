@@ -1,9 +1,9 @@
 {
-    "name": "Service_Desk",
+    "name": "service_desk",
     "version": "1.0.0",
     "description": "My SAP project",
-    "repository": "<Add your repository here>",
-    "license": "UNLICENSED",
+    "repository": "https://github.com/alejman2009/Service_Desk.git",
+    "license": "AFL-3.0",
     "private": true,
     "dependencies": {
         "@cap-js/hana": "^1",
