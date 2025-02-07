@@ -1,6 +1,7 @@
 namespace Service_Desk;
 
-entity Solicitudes {
+entity Solicitudes
+{
     key ID : UUID;
     FechaCreacion : DateTime;
     FechaModificacion : DateTime;
@@ -14,31 +15,36 @@ entity Solicitudes {
     Asignado : Association to one PersonasSoporte;
 }
 
-entity Comunicaciones {
+entity Comunicaciones
+{
     key ID : UUID;
     Autor : String;
     Fecha : DateTime;
     Mensaje : String;
-
 }
 
-entity TiposDeSolicitud {
+entity TiposDeSolicitud
+{
     key ID : UUID;
     Nombre : String;
 }
 
-entity Urgencia {
+entity Urgencia
+{
     key ID : UUID;
-    Nombre : String enum {
+    Nombre : String enum
+    {
         Alta;
         Media;
         Baja;
     };
 }
 
-entity PersonasSoporte {
+entity PersonasSoporte
+{
     key ID : UUID;
     Nombre : String;
     Apellido1 : String;
     Apellido2 : String;
 }
+
