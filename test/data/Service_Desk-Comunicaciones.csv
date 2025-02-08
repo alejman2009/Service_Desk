@@ -1,0 +1,4 @@
+ID;Autor;Fecha;Mensaje;Solicitud_ID
+"ff3d1cbb-3c67-412d-8b62-54b3f502fb2a";"user1";"2025-02-07T11:00:00Z";"Tengo problemas con la red";"20466921-7d57-4e76-b14c-e53fd97dcb11"
+"c217b35a-5e32-4b89-8549-8f81db9d4eb8";"admin1";"2025-02-07T11:30:00Z";"Estamos revisando el problema";"20466921-7d57-4e76-b14c-e53fd97dcb11"
+"e4185d2c-bf42-4cbb-8823-fc2f63d652a1";"user2";"2025-02-07T12:45:00Z";"La aplicación no carga correctamente";"5a3b129a-99f3-4b80-a42b-326b6cbe5f9f"

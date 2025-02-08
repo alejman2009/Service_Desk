@@ -1,0 +1,3 @@
+ID;FechaCreacion;QuienCreo;UsuarioSolicitante;TiposDeSolicitud_ID;Estado;Motivo;Asignado_ID
+"20466921-7d57-4e76-b14c-e53fd97dcb11";"2025-02-07T10:30:00Z";"user1";"user1";"e02fa0e4-10e4-4d6b-b8b0-6dbe26c39ab6";"Pendiente";"Problema con la red";"4b8f95b6-7a57-49c8-bc27-1ffbfc818199"
+"5a3b129a-99f3-4b80-a42b-326b6cbe5f9f";"2025-02-07T12:15:00Z";"user2";"user2";"3fbcfd79-7785-4c6b-8754-41ebf9c81f27";"En Proceso";"Error en la aplicación";"a9b6b37d-5672-403b-8a3b-b1a33d8932b4"

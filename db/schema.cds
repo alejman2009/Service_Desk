@@ -8,11 +8,11 @@ entity Solicitudes
     QuienCreo : String;
     QuienModifico : String;
     UsuarioSolicitante : String;
-    TiposDeSolicitud : Association to one TiposDeSolicitud;
     Estado : String;
-    Urgencia : String;
     Motivo : String;
     Asignado : Association to one PersonasSoporte;
+    tipo : Association to many TiposDeSolicitud on tipo.solicitudes = $self;
+    urgencia : Association to many Urgencia on urgencia.solicitudes = $self;
 }
 
 entity Comunicaciones
@@ -27,17 +27,14 @@ entity TiposDeSolicitud
 {
     key ID : UUID;
     Nombre : String;
+    solicitudes : Association to one Solicitudes;
 }
 
 entity Urgencia
 {
     key ID : UUID;
-    Nombre : String enum
-    {
-        Alta;
-        Media;
-        Baja;
-    };
+    Nombre : String;
+    solicitudes : Association to one Solicitudes;
 }
 
 entity PersonasSoporte
@@ -46,5 +43,5 @@ entity PersonasSoporte
     Nombre : String;
     Apellido1 : String;
     Apellido2 : String;
+    Solicitudes : Association to many Solicitudes on Solicitudes.Asignado = $self;
 }
-
