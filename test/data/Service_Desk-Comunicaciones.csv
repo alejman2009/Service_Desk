@@ -1,4 +1,7 @@
-ID;Autor;Fecha;Mensaje;Solicitud_ID
-"ff3d1cbb-3c67-412d-8b62-54b3f502fb2a";"user1";"2025-02-07T11:00:00Z";"Tengo problemas con la red";"20466921-7d57-4e76-b14c-e53fd97dcb11"
-"c217b35a-5e32-4b89-8549-8f81db9d4eb8";"admin1";"2025-02-07T11:30:00Z";"Estamos revisando el problema";"20466921-7d57-4e76-b14c-e53fd97dcb11"
-"e4185d2c-bf42-4cbb-8823-fc2f63d652a1";"user2";"2025-02-07T12:45:00Z";"La aplicación no carga correctamente";"5a3b129a-99f3-4b80-a42b-326b6cbe5f9f"
+ID,timestamp,author,message,solicitud_ID
+e431f878-8971-42f5-9571-0e8476a5d58f,2025-02-09 10:30:00,usuario1,Se está revisando el problema,5587983f-3146-4c93-a303-45f86ecc4d01
+9c0295b9-781e-4941-8c6b-16e2856c3a8e,2025-02-08 09:45:00,usuario2,Hemos recibido tu solicitud,79614890-a264-4552-8209-6a354901fcc8
+867897b0-70df-462a-9b8b-e9d30e04b394,2025-02-07 14:50:00,usuario3,Se está generando el documento,db50a66a-13bb-4236-a5be-61b116d3532e
+f2ea88ef-b239-4c65-a0a6-a1741ee084bd,2025-02-06 08:30:00,usuario4,Estamos revisando el error,13789183-34f8-478a-b414-498d20c60358
+7b64d7e4-fe7b-4a70-bb84-acf170784473,2025-02-05 12:00:00,usuario5,El equipo de seguridad revisará el caso,c6ac2a85-36f9-423b-8b64-33469f89e3f7
+e8dcf4d9-4f3e-4a4a-9df1-17a14b1f8128,2025-02-04 15:30:00,usuario6,Actualización completada,8764ddb8-fa7d-424f-9dcc-5785d6ed3a21

@@ -1,3 +1,7 @@
-ID;FechaCreacion;QuienCreo;UsuarioSolicitante;TiposDeSolicitud_ID;Estado;Motivo;Asignado_ID
-"20466921-7d57-4e76-b14c-e53fd97dcb11";"2025-02-07T10:30:00Z";"user1";"user1";"e02fa0e4-10e4-4d6b-b8b0-6dbe26c39ab6";"Pendiente";"Problema con la red";"4b8f95b6-7a57-49c8-bc27-1ffbfc818199"
-"5a3b129a-99f3-4b80-a42b-326b6cbe5f9f";"2025-02-07T12:15:00Z";"user2";"user2";"3fbcfd79-7785-4c6b-8754-41ebf9c81f27";"En Proceso";"Error en la aplicación";"a9b6b37d-5672-403b-8a3b-b1a33d8932b4"
+ID,createdAt,modifiedAt,motivo,usuario,tipo_solicitud,estado,urgencia,persona_soporte_ID
+5587983f-3146-4c93-a303-45f86ecc4d01,2025-02-09 10:15:00,2025-02-09 12:00:00,Problema de red,usuario1,INC,NU,M,e86c27dc-b8e2-4429-a410-4a04b5ff580b
+79614890-a264-4552-8209-6a354901fcc8,2025-02-08 09:30:00,2025-02-08 10:45:00,Acceso denegado,usuario2,SEG,AS,A,b1498526-e8c0-4dc5-8ea5-34af92291f74
+db50a66a-13bb-4236-a5be-61b116d3532e,2025-02-07 14:20:00,2025-02-07 16:30:00,Solicitud de documento,usuario3,DOC,PR,B,ca465414-4085-4dfe-84e5-4c27075f24ba
+13789183-34f8-478a-b414-498d20c60358,2025-02-06 08:10:00,2025-02-06 09:20:00,Error en el sistema,usuario4,INC,ES,M,165bcee2-a1ea-4549-ab77-3520d8189a62
+c6ac2a85-36f9-423b-8b64-33469f89e3f7,2025-02-05 11:45:00,2025-02-05 13:00:00,Verificación de seguridad,usuario5,SEG,RE,A,af24ecbf-48e1-42e3-9aa0-fb4e8e1edf70
+8764ddb8-fa7d-424f-9dcc-5785d6ed3a21,2025-02-04 15:00:00,2025-02-04 17:10:00,Actualización de datos,usuario6,DOC,CE,B,6bed0f77-afa9-4f65-ac73-4db818da4875
