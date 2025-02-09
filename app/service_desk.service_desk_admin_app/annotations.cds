@@ -32,6 +32,12 @@ annotate service.Solicitudes with @(
             Label : 'General Information',
             Target : '@UI.FieldGroup#GeneratedGroup',
         },
+        {
+            $Type : 'UI.ReferenceFacet',
+            Label : '{i18n>Comunicaciones}',
+            ID : 'i18nComunicaciones',
+            Target : 'comunicaciones/@UI.LineItem#i18nComunicaciones',
+        },
     ],
     UI.LineItem : [
         {
@@ -55,5 +61,10 @@ annotate service.Solicitudes with @(
             Value : Motivo,
         },
     ],
+);
+
+annotate Service_Desk.Comunicaciones with @(
+    UI.LineItem #i18nComunicaciones : [
+    ]
 );
 
