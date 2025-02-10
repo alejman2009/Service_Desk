@@ -27,7 +27,7 @@
                     return Controller.extend("PreviewController", {
                         onInit: function () {
 
-                            const data = {"Services":[{"ServiceName":"Service_Admin","DetailsURL":"./service/Service_Admin/","Metadata":"./service/Service_Admin/$metadata","Entities":[{"Name":"Solicitudes","URL":"./service/Service_Admin/Solicitudes","FioriURL":"$fiori-preview/Service_Admin/Solicitudes#preview-app"}],"EntitiesCount":1},{"ServiceName":"Service_User","DetailsURL":"./service/Service_User/","Metadata":"./service/Service_User/$metadata","Entities":[{"Name":"Solicitudes","URL":"./service/Service_User/Solicitudes","FioriURL":"$fiori-preview/Service_User/Solicitudes#preview-app"}],"EntitiesCount":1}]}
+                            const data = {"Services":[{"ServiceName":"ServiceDeskAdmin","DetailsURL":"./service/ServiceDeskAdmin/","Metadata":"./service/ServiceDeskAdmin/$metadata","Entities":[{"Name":"Solicitudes","URL":"./service/ServiceDeskAdmin/Solicitudes","FioriURL":"$fiori-preview/ServiceDeskAdmin/Solicitudes#preview-app"}],"EntitiesCount":1},{"ServiceName":"ServiceDeskUser","DetailsURL":"./service/ServiceDeskUser/","Metadata":"./service/ServiceDeskUser/$metadata","Entities":[{"Name":"Solicitudes","URL":"./service/ServiceDeskUser/Solicitudes","FioriURL":"$fiori-preview/ServiceDeskUser/Solicitudes#preview-app"}],"EntitiesCount":1}]}
                             this.getView().setModel(new JSONModel(data));
                         }
                     });

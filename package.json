@@ -28,8 +28,8 @@
     "start-local": "npm run generate-entry-point && npm run cds-watch",
     "generate-entry-point": "dev-cap-tools gen-entrypoint",
     "cds-watch": "cds watch --open",
-    "watch-service_desk.service_desk_admin_app": "cds watch --open service_desk.service_desk_admin_app/webapp/index.html?sap-ui-xx-viewCache=false",
-    "watch-service_desk.service_desk_user_app": "cds watch --open service_desk.service_desk_user_app/webapp/index.html?sap-ui-xx-viewCache=false"
+    "watch-service_desk.servicedeskadmin": "cds watch --open service_desk.servicedeskadmin/webapp/index.html?sap-ui-xx-viewCache=false",
+    "watch-service_desk.servicedeskuser": "cds watch --open service_desk.servicedeskuser/webapp/index.html?sap-ui-xx-viewCache=false"
   },
   "cds": {
     "sql": {
@@ -55,7 +55,7 @@
   },
   "lcap": true,
   "sapux": [
-    "app/service_desk.service_desk_admin_app",
-    "app/service_desk.service_desk_user_app"
+    "app/service_desk.servicedeskadmin",
+    "app/service_desk.servicedeskuser"
   ]
 }
