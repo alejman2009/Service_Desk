@@ -1,4 +1,4 @@
-ID;Nombre
-"90a0d6b8-32e4-45d8-baa1-0170c1b580b4";"Alta"
-"f2e6d94d-73d6-46bb-a642-bb96a99d5f5d";"Media"
-"6cf0c8d8-3a21-4bde-9a82-2f6a4f0e1fd5";"Baja"
+ID,Nombre
+90a0d6b8-32e4-45d8-baa1-0170c1b580b4,Alta
+f2e6d94d-73d6-46bb-a642-bb96a99d5f5d,Media
+6cf0c8d8-3a21-4bde-9a82-2f6a4f0e1fd5,Baja

@@ -1,4 +1,7 @@
-ID;Nombre
-"e02fa0e4-10e4-4d6b-b8b0-6dbe26c39ab6";"Incidencia"
-"3fbcfd79-7785-4c6b-8754-41ebf9c81f27";"Seguridad"
-"ab7429c1-4a10-42a7-ae1d-68a5c6a05384";"Documentación"
+ID,Nombre
+c3fbd5b1-9b23-4c82-925b-8e8b1aafc7f7,Incidencia
+4b9b5f76-3d76-42d9-b25a-35c15d7e91a3,Seguridad
+e7ac27b0-6c25-44b1-9351-18f1a5a2c684,Documentación
+2c4a9b1d-7e8f-4a3b-9c5d-6e7f8a9b1d3c,Contabilidad
+a1b2c3d4-5e6f-7a8b-9c0d-1e2f3a4b5c6d,Dirección
+f9e8d7c6-b5a4-3d2c-1a0f-9e8d7c6b5a43,Mantenimiento

@@ -6,10 +6,10 @@ entity Solicitudes {
         modifiedAt      : Timestamp;
         motivo          : String(128);
         usuario         : String(128);
-        tipo_solicitud  : TiposDeSolicitud;
+        tipo_solicitud  : Association to one TiposDeSolicitud;
         persona_soporte : Association to one PersonasSoporte;
         estado          : Estado;
-        urgencia        : Urgencia;
+        urgencia        : Association to one Urgencia;
         comunicaciones  : Association to many Comunicaciones
                               on comunicaciones.solicitud = $self;
 }
@@ -31,6 +31,16 @@ entity Comunicaciones {
         solicitud   : Association to one Solicitudes;
 }
 
+entity TiposDeSolicitud {
+    key ID      : UUID;
+        Nombre  : String(128);
+}
+
+entity Urgencia {
+    key ID      : UUID;
+        Nombre  : String(128);
+}
+
 type Estado : String(2) enum {
     Nuevo         = 'NU';
     Asignado      = 'AS';
@@ -38,16 +48,4 @@ type Estado : String(2) enum {
     En_Espera     = 'ES';
     Resuelto      = 'RE';
     Cerrado       = 'CE';
-}
-
-type TiposDeSolicitud : String(3) enum{
-    Incidencia    = 'INC';
-    Seguridad     = 'SEG';
-    Documentacion = 'DOC';
-}
-
-type Urgencia : String(1) enum {
-    Alta          = 'A';
-    Media         = 'M';
-    Baja          = 'B';
 }

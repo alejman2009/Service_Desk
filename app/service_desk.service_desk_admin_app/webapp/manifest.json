@@ -99,12 +99,17 @@
         {
           "pattern": ":?query:",
           "name": "SolicitudesList",
-          "target": "SolicitudesList"
+          "target": [
+            "SolicitudesList"
+          ]
         },
         {
           "pattern": "Solicitudes({key}):?query:",
           "name": "SolicitudesObjectPage",
-          "target": "SolicitudesObjectPage"
+          "target": [
+            "SolicitudesList",
+            "SolicitudesObjectPage"
+          ]
         }
       ],
       "targets": {
@@ -126,10 +131,12 @@
               "controlConfiguration": {
                 "@com.sap.vocabularies.UI.v1.LineItem": {
                   "tableSettings": {
-                    "type": "ResponsiveTable"
+                    "type": "ResponsiveTable",
+                    "selectionLimit": 20
                   }
                 }
-              }
+              },
+              "initialLoad": "Enabled"
             }
           }
         },
