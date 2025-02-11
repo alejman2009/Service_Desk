@@ -4,11 +4,11 @@
   "scopes": [
     {
       "name": "$XSAPPNAME.Admin",
-      "description": "Permite la gestión de solicitudes y tipos de solicitudes"
+      "description": "Acceso completo a solicitudes y administración."
     },
     {
       "name": "$XSAPPNAME.User",
-      "description": "Permite a los usuarios crear y ver sus propias solicitudes"
+      "description": "Acceso a la gestión de sus propias solicitudes."
     }
   ],
   "role-templates": [
@@ -21,6 +21,28 @@
       "name": "User",
       "description": "Rol de Usuario",
       "scope-references": ["$XSAPPNAME.User"]
+    }
+  ],
+  "role-collections": [
+    {
+      "name": "servicedesk.servicedeskadmin",
+      "description": "Acceso solo para administradores",
+      "role-template-references": ["Admin"]
+    },
+    {
+      "name": "servicedesk.servicedeskuser",
+      "description": "Acceso solo para usuarios autenticados",
+      "role-template-references": ["User"]
+    },
+    {
+      "name": "servicedesk.editortipossol",
+      "description": "Acceso a la edición de Tipos de Solicitud",
+      "role-template-references": ["Admin"]
+    },
+    {
+      "name": "servicedesk.editorurgencia",
+      "description": "Acceso a la edición de Urgencias",
+      "role-template-references": ["Admin"]
     }
   ]
 }

@@ -15,7 +15,7 @@ entity Solicitudes : managed
     urgencia : Association to one Urgencia;
     comunicaciones : Association to many Comunicaciones on comunicaciones.solicitud = $self;
 }
-
+@cds.odata.valuelist
 entity PersonasSoporte
 {
     key ID : UUID;
@@ -34,18 +34,21 @@ entity Comunicaciones
     key solicitud : Association to one Solicitudes;
 }
 
+@cds.odata.valuelist
 entity TiposDeSolicitud
 {
     key ID : UUID;
     Nombre : String(128);
 }
 
+@cds.odata.valuelist
 entity Urgencia
 {
     key ID : UUID;
     Nombre : String(128);
 }
 
+@cds.odata.valuelist
 type Estado : String(2) enum
 {
     Nuevo = 'NU';
