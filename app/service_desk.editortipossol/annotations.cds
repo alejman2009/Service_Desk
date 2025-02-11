@@ -1,4 +1,4 @@
-using ServiceDeskAdmin as service from '../../srv/service';
+using ServiceDeskAdmin as service from '../../srv/serviceAdmin';
 annotate service.TiposDeSolicitud with @(
     UI.FieldGroup #GeneratedGroup : {
         $Type : 'UI.FieldGroupType',

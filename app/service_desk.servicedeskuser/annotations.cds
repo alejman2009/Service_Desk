@@ -1,4 +1,4 @@
-using ServiceDeskUser as service from '../../srv/service1';
+using ServiceDeskUser as service from '../../srv/serviceUser';
 annotate service.Solicitudes with @(
     UI.FieldGroup #GeneratedGroup : {
         $Type : 'UI.FieldGroupType',
