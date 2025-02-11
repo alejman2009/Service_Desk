@@ -1,87 +1,149 @@
-using ServiceDeskAdmin as service from '../../srv/serviceAdmin';
-
+using ServiceDeskAdmin as service from '../../srv/service';
 annotate service.Solicitudes with @(
-    UI.FieldGroup #GeneratedGroup: {
-        $Type: 'UI.FieldGroupType',
+    UI.FieldGroup #GeneratedGroup : {
+        $Type : 'UI.FieldGroupType',
         Data : [
             {
-                $Type: 'UI.DataField',
-                Label: 'createdAt',
-                Value: createdAt,
+                $Type : 'UI.DataField',
+                Label : 'createdAt',
+                Value : createdAt,
             },
             {
-                $Type: 'UI.DataField',
-                Label: 'modifiedAt',
-                Value: modifiedAt,
+                $Type : 'UI.DataField',
+                Label : 'modifiedAt',
+                Value : modifiedAt,
             },
             {
-                $Type: 'UI.DataField',
-                Label: 'QuienCreo',
-                Value: QuienCreo,
+                $Type : 'UI.DataField',
+                Label : 'motivo',
+                Value : motivo,
             },
             {
-                $Type: 'UI.DataField',
-                Label: 'QuienModifico',
-                Value: QuienModifico,
+                $Type : 'UI.DataField',
+                Label : 'usuario',
+                Value : usuario,
             },
             {
-                $Type: 'UI.DataField',
-                Label: 'motivo',
-                Value: motivo,
-            },
-            {
-                $Type: 'UI.DataField',
-                Label: 'usuario',
-                Value: usuario,
-            },
-            {
-                $Type: 'UI.DataField',
-                Label: 'estado',
-                Value: estado,
+                $Type : 'UI.DataField',
+                Label : 'estado',
+                Value : estado,
             },
         ],
     },
-    UI.Facets                    : [
+    UI.Facets : [
         {
             $Type : 'UI.ReferenceFacet',
-            ID    : 'GeneratedFacet1',
+            ID : 'GeneratedFacet1',
             Label : 'General Information',
-            Target: '@UI.FieldGroup#GeneratedGroup',
+            Target : '@UI.FieldGroup#GeneratedGroup',
         },
         {
             $Type : 'UI.ReferenceFacet',
             Label : '{i18n>Comunicaciones}',
-            ID    : 'i18nComunicaciones',
-            Target: 'comunicaciones/@UI.LineItem#i18nComunicaciones',
+            ID : 'i18nComunicaciones',
+            Target : 'comunicaciones/@UI.PresentationVariant#i18nComunicaciones',
         },
     ],
-    UI.LineItem                  : [
+    UI.LineItem : [
         {
-            $Type: 'UI.DataField',
-            Label: 'createdAt',
-            Value: createdAt,
+            $Type : 'UI.DataField',
+            Label : 'createdAt',
+            Value : createdAt,
         },
         {
-            $Type: 'UI.DataField',
-            Label: 'modifiedAt',
-            Value: modifiedAt,
+            $Type : 'UI.DataField',
+            Label : 'modifiedAt',
+            Value : modifiedAt,
         },
         {
-            $Type: 'UI.DataField',
-            Label: 'QuienCreo',
-            Value: QuienCreo,
+            $Type : 'UI.DataField',
+            Label : 'motivo',
+            Value : motivo,
         },
         {
-            $Type: 'UI.DataField',
-            Label: 'QuienModifico',
-            Value: QuienModifico,
+            $Type : 'UI.DataField',
+            Label : 'usuario',
+            Value : usuario,
         },
         {
-            $Type: 'UI.DataField',
-            Label: 'motivo',
-            Value: motivo,
+            $Type : 'UI.DataField',
+            Label : 'estado',
+            Value : estado,
         },
     ],
 );
 
-annotate Service_Desk.Comunicaciones with @(UI.LineItem #i18nComunicaciones: []);
+annotate service.Comunicaciones with @(
+    UI.LineItem #i18nComunicaciones : [
+        {
+            $Type : 'UI.DataField',
+            Value : ID,
+            Label : 'ID',
+        },
+        {
+            $Type : 'UI.DataField',
+            Value : solicitud_ID,
+            Label : 'solicitud_ID',
+        },
+        {
+            $Type : 'UI.DataField',
+            Value : author,
+            Label : 'author',
+        },
+        {
+            $Type : 'UI.DataField',
+            Value : message,
+            Label : 'message',
+        },
+        {
+            $Type : 'UI.DataField',
+            Value : timestamp,
+            Label : 'timestamp',
+        },
+    ],
+    UI.PresentationVariant #i18nComunicaciones : {
+        $Type : 'UI.PresentationVariantType',
+        Visualizations : [
+            '@UI.LineItem#i18nComunicaciones',
+        ],
+    },
+    UI.Facets : [
+        {
+            $Type : 'UI.ReferenceFacet',
+            Label : 'Comunicacion',
+            ID : 'Comunicacion',
+            Target : '@UI.FieldGroup#Comunicacion',
+        },
+    ],
+    UI.FieldGroup #Comunicacion : {
+        $Type : 'UI.FieldGroupType',
+        Data : [
+            {
+                $Type : 'UI.DataField',
+                Value : ID,
+                Label : 'ID',
+            },
+            {
+                $Type : 'UI.DataField',
+                Value : solicitud_ID,
+                Label : '{i18n>IdDeSolicitud}',
+            },
+            {
+                $Type : 'UI.DataField',
+                Value : author,
+                Label : '{i18n>Autor}',
+            },
+            {
+                $Type : 'UI.DataField',
+                Value : message,
+                Label : '{i18n>Mensaje}',
+            },
+            {
+                $Type : 'UI.DataField',
+                Value : timestamp,
+                Label : '{i18n>Timestamp}',
+            },
+        ],
+    },
+);
+

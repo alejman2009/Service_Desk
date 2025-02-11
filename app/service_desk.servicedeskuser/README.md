@@ -1,7 +1,7 @@
 ## Application Details
 |               |
 | ------------- |
-|**Generation Date and Time**<br>Mon Feb 10 2025 18:38:00 GMT+0000 (Coordinated Universal Time)|
+|**Generation Date and Time**<br>Tue Feb 11 2025 19:39:21 GMT+0000 (Coordinated Universal Time)|
 |**App Generator**<br>@sap/generator-fiori-elements|
 |**App Generator Version**<br>1.16.3|
 |**Generation Platform**<br>SAP Business Application Studio|
@@ -9,7 +9,7 @@
 |**Service Type**<br>Local Cap|
 |**Service URL**<br>http://localhost:4004/service/ServiceDeskUser/|
 |**Module Name**<br>service_desk.servicedeskuser|
-|**Application Title**<br>ServiceDeskUser|
+|**Application Title**<br>servicedeskuser|
 |**Namespace**<br>|
 |**UI5 Theme**<br>sap_horizon|
 |**UI5 Version**<br>1.120.13|
@@ -17,6 +17,7 @@
 |**Enable TypeScript**<br>False|
 |**Add Eslint configuration**<br>False|
 |**Main Entity**<br>Solicitudes|
+|**Navigation Entity**<br>comunicaciones|
 
 ## service_desk.servicedeskuser
 
