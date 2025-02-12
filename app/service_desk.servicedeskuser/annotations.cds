@@ -167,3 +167,19 @@ annotate service.Estado with {
         Common.Text : ID
 )};
 
+annotate service.Urgencia with {
+    Nombre @(Common.ValueList : {
+            $Type : 'Common.ValueListType',
+            CollectionPath : 'Urgencia',
+            Parameters : [
+                {
+                    $Type : 'Common.ValueListParameterInOut',
+                    LocalDataProperty : Nombre,
+                    ValueListProperty : 'Nombre',
+                },
+            ],
+            Label : '{i18n>Urgenciahelp}',
+        },
+        Common.ValueListWithFixedValues : true
+)};
+
