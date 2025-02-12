@@ -47,15 +47,15 @@ service ServiceDeskUser
     entity Comunicaciones as
         projection on my.Comunicaciones;
 
-    @readonly
+    @odata.draft.enabled
     entity PersonasSoporte as
         projection on my.PersonasSoporte;
 
-    @readonly
+    @odata.draft.enabled
     entity Urgencia as
         projection on my.Urgencia;
 
-    @readonly
+    @odata.draft.enabled
     entity TiposDeSolicitud as
         projection on my.TiposDeSolicitud;
 
