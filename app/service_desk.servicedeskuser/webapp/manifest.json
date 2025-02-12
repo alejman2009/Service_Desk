@@ -132,6 +132,20 @@
                 "@com.sap.vocabularies.UI.v1.LineItem": {
                   "tableSettings": {
                     "type": "ResponsiveTable"
+                  },
+                  "columns": {
+                    "DataField::urgencia::Nombre": {
+                      "widthIncludingColumnHeader": true
+                    },
+                    "DataField::createdBy": {
+                      "widthIncludingColumnHeader": true
+                    },
+                    "DataField::createdAt": {
+                      "widthIncludingColumnHeader": true
+                    },
+                    "DataField::modifiedAt": {
+                      "widthIncludingColumnHeader": true
+                    }
                   }
                 }
               },

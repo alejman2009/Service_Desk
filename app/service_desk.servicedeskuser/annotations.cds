@@ -5,28 +5,47 @@ annotate service.Solicitudes with @(
         Data : [
             {
                 $Type : 'UI.DataField',
-                Label : 'createdAt',
+                Value : createdBy,
+            },
+            {
+                $Type : 'UI.DataField',
+                Label : '{i18n>CreatedAt1}',
                 Value : createdAt,
             },
             {
                 $Type : 'UI.DataField',
-                Label : 'modifiedAt',
+                Label : '{i18n>ModifiedAt}',
                 Value : modifiedAt,
             },
             {
                 $Type : 'UI.DataField',
-                Label : 'motivo',
+                Label : '{i18n>Motivo1}',
                 Value : motivo,
             },
             {
                 $Type : 'UI.DataField',
-                Label : 'usuario',
+                Label : '{i18n>Usuario1}',
                 Value : usuario,
             },
             {
                 $Type : 'UI.DataField',
-                Label : 'estado',
-                Value : estado,
+                Value : estado.Description,
+                Label : '{i18n>Estadosolicitud}',
+            },
+            {
+                $Type : 'UI.DataField',
+                Value : urgencia.Nombre,
+                Label : '{i18n>Urgencia}',
+            },
+            {
+                $Type : 'UI.DataField',
+                Value : persona_soporte.Nombre,
+                Label : '{i18n>Personasoporte}',
+            },
+            {
+                $Type : 'UI.DataField',
+                Value : tipo_solicitud.Nombre,
+                Label : '{i18n>Tiposolicitud}',
             },
         ],
     },
@@ -84,7 +103,6 @@ annotate service.Solicitudes with @(
             $Type : 'UI.DataField',
             Value : persona_soporte.Nombre,
             Label : '{i18n>Personasoporte}',
-            ![@UI.Importance] : #Low,
         },
         {
             $Type : 'UI.DataField',
@@ -126,6 +144,9 @@ annotate service.Comunicaciones with @(
 );
 
 annotate service.PersonasSoporte with {
-    Nombre @Common.Text : Apellido1
+    Nombre @Common.Text : {
+        $value : Apellido1,
+        ![@UI.TextArrangement] : #TextFirst
+    }
 };
 
