@@ -9,6 +9,12 @@ service ServiceDeskAdmin
         { grant : [ '*' ], to : [ 'authenticated-user' ] }
     ];
 
+    annotate Estado with @restrict :
+    [
+        { grant : [ '*' ], to : [ 'Admin' ] },
+        { grant : [ '*' ], to : [ 'authenticated-user' ] }
+    ];
+
     annotate PersonasSoporte with @restrict :
     [
         { grant : [ '*' ], to : [ 'Admin' ] },

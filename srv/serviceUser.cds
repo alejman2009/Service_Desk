@@ -9,10 +9,34 @@ service ServiceDeskUser
         { grant : [ '*' ], to : [ 'authenticated-user' ] }
     ];
 
+    annotate Estado with @restrict :
+    [
+        { grant : [ 'READ' ], to : [ 'User' ] },
+        { grant : [ 'READ' ], to : [ 'authenticated-user' ] }
+    ];
+
+    annotate PersonasSoporte with @restrict :
+    [
+        { grant : [ 'READ' ], to : [ 'User' ] },
+        { grant : [ 'READ' ], to : [ 'authenticated-user' ] }
+    ];
+
     annotate Solicitudes with @restrict :
     [
         { grant : [ '*' ], to : [ 'User' ] },
         { grant : [ '*' ], to : [ 'authenticated-user' ] }
+    ];
+
+    annotate TiposDeSolicitud with @restrict :
+    [
+        { grant : [ 'READ' ], to : [ 'User' ] },
+        { grant : [ 'READ' ], to : [ 'authenticated-user' ] }
+    ];
+
+    annotate Urgencia with @restrict :
+    [
+        { grant : [ 'READ' ], to : [ 'User' ] },
+        { grant : [ 'READ' ], to : [ 'authenticated-user' ] }
     ];
 
     @odata.draft.enabled
@@ -22,6 +46,22 @@ service ServiceDeskUser
     @odata.draft.enabled
     entity Comunicaciones as
         projection on my.Comunicaciones;
+
+    @readonly
+    entity PersonasSoporte as
+        projection on my.PersonasSoporte;
+
+    @readonly
+    entity Urgencia as
+        projection on my.Urgencia;
+
+    @readonly
+    entity TiposDeSolicitud as
+        projection on my.TiposDeSolicitud;
+
+    @odata.draft.enabled
+    entity Estado as
+        projection on my.Estado;
 }
 
 annotate ServiceDeskUser with @requires :
