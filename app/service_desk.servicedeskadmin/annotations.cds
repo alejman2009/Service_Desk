@@ -200,3 +200,38 @@ annotate service.Estado with {
     Description @Common.Text : ID
 };
 
+annotate service.PersonasSoporte with {
+    Nombre @(
+        Common.ValueList : {
+            $Type : 'Common.ValueListType',
+            CollectionPath : 'PersonasSoporte',
+            Parameters : [
+                {
+                    $Type : 'Common.ValueListParameterInOut',
+                    LocalDataProperty : Nombre,
+                    ValueListProperty : 'Nombre',
+                },
+            ],
+            Label : '{i18n>Personahelp}',
+        },
+        Common.ValueListWithFixedValues : true,
+        Common.Text : Apellido1,
+    )
+};
+
+annotate service.TiposDeSolicitud with {
+    Nombre @(Common.ValueList : {
+            $Type : 'Common.ValueListType',
+            CollectionPath : 'TiposDeSolicitud',
+            Parameters : [
+                {
+                    $Type : 'Common.ValueListParameterInOut',
+                    LocalDataProperty : Nombre,
+                    ValueListProperty : 'Nombre',
+                },
+            ],
+            Label : '{i18n>Tipohelp}',
+        },
+        Common.ValueListWithFixedValues : true
+)};
+

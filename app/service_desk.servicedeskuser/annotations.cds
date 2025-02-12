@@ -150,3 +150,20 @@ annotate service.PersonasSoporte with {
     }
 };
 
+annotate service.Estado with {
+    Description @(Common.ValueList : {
+            $Type : 'Common.ValueListType',
+            CollectionPath : 'Estado',
+            Parameters : [
+                {
+                    $Type : 'Common.ValueListParameterInOut',
+                    LocalDataProperty : Description,
+                    ValueListProperty : 'Description',
+                },
+            ],
+            Label : '{i18n>Estadohelp}',
+        },
+        Common.ValueListWithFixedValues : true,
+        Common.Text : ID
+)};
+
