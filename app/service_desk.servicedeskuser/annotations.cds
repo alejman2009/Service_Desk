@@ -65,11 +65,6 @@ annotate service.Solicitudes with @(
             Label : 'usuario',
             Value : usuario,
         },
-        {
-            $Type : 'UI.DataField',
-            Label : 'estado',
-            Value : estado,
-        },
     ],
 );
 

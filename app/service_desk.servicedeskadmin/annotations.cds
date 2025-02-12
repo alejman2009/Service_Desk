@@ -25,11 +25,6 @@ annotate service.Solicitudes with @(
             },
             {
                 $Type : 'UI.DataField',
-                Label : 'estado',
-                Value : estado,
-            },
-            {
-                $Type : 'UI.DataField',
                 Value : urgencia.Nombre,
                 Label : 'Urgencia',
             },
@@ -74,11 +69,6 @@ annotate service.Solicitudes with @(
             $Type : 'UI.DataField',
             Label : 'usuario',
             Value : usuario,
-        },
-        {
-            $Type : 'UI.DataField',
-            Label : 'estado',
-            Value : estado,
         },
     ],
 );
@@ -136,7 +126,7 @@ annotate service.Comunicaciones with @(
             {
                 $Type : 'UI.DataField',
                 Value : solicitud_ID,
-                Label : '{i18n>IdDeSolicitud}',
+                Label : '{i18n>Solicitudid}',
             },
             {
                 $Type : 'UI.DataField',
