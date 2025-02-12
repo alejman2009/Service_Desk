@@ -5,7 +5,7 @@ module.exports = async function () {
 
     // Asegurar que el usuario está autenticado y tiene rol "User"
     this.before('*', async (req) => {
-        if (!req.user || !req.user.is('AuthenticatedUser') || !req.user.is('User')) { //privileged es el usuario de pruebas
+        if (!req.user || !req.user.is('Authenticated User') || !req.user.is('User')) { //privileged es el usuario de pruebas
             req.error(403, "Acceso denegado. Se requieren los roles 'Authenticated User' y 'User'.");
         }
     });

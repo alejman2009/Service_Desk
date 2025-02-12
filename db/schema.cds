@@ -9,7 +9,7 @@ entity Solicitudes : managed
     modifiedAt : Timestamp;
     motivo : String(128);
     usuario : String(128);
-    estado : Estado;
+    estado : Association to one Estado;
     tipo_solicitud : Association to one TiposDeSolicitud;
     persona_soporte : Association to one PersonasSoporte;
     urgencia : Association to one Urgencia;
@@ -48,13 +48,7 @@ entity Urgencia
     Nombre : String(128);
 }
 
-@cds.odata.valuelist
-type Estado : String(2) enum
-{
-    Nuevo = 'NU';
-    Asignado = 'AS';
-    En_Proceso = 'PR';
-    En_Espera = 'ES';
-    Resuelto = 'RE';
-    Cerrado = 'CE';
+entity Estado {
+    key ID : String(2);
+    Description : String(100);
 }

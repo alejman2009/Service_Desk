@@ -28,6 +28,16 @@ annotate service.Solicitudes with @(
                 Label : 'estado',
                 Value : estado,
             },
+            {
+                $Type : 'UI.DataField',
+                Value : urgencia.Nombre,
+                Label : 'Urgencia',
+            },
+            {
+                $Type : 'UI.DataField',
+                Value : tipo_solicitud.Nombre,
+                Label : 'Tipo_Solicitud',
+            },
         ],
     },
     UI.Facets : [
@@ -146,4 +156,20 @@ annotate service.Comunicaciones with @(
         ],
     },
 );
+
+annotate service.Urgencia with {
+    Nombre @(Common.ValueList : {
+            $Type : 'Common.ValueListType',
+            CollectionPath : 'Urgencia',
+            Parameters : [
+                {
+                    $Type : 'Common.ValueListParameterInOut',
+                    LocalDataProperty : Nombre,
+                    ValueListProperty : 'Nombre',
+                },
+            ],
+            Label : 'Urgencia_help',
+        },
+        Common.ValueListWithFixedValues : true
+)};
 

@@ -52,6 +52,10 @@ service ServiceDeskAdmin
     @odata.draft.enabled
     entity Urgencia as
         projection on my.Urgencia;
+
+    @odata.draft.enabled
+    entity Estado as
+        projection on my.Estado;
 }
 
 annotate ServiceDeskAdmin with @requires :
