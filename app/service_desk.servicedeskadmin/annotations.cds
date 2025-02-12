@@ -5,28 +5,37 @@ annotate service.Solicitudes with @(
         Data : [
             {
                 $Type : 'UI.DataField',
-                Label : 'createdAt',
+                Value : createdBy,
+            },
+            {
+                $Type : 'UI.DataField',
+                Label : 'Created At',
                 Value : createdAt,
             },
             {
                 $Type : 'UI.DataField',
-                Label : 'modifiedAt',
+                Label : 'Modified At',
                 Value : modifiedAt,
             },
             {
                 $Type : 'UI.DataField',
-                Label : 'motivo',
+                Label : 'Motivo',
                 Value : motivo,
             },
             {
                 $Type : 'UI.DataField',
-                Label : 'usuario',
+                Label : 'Usuario',
                 Value : usuario,
             },
             {
                 $Type : 'UI.DataField',
                 Value : urgencia.Nombre,
                 Label : 'Urgencia',
+            },
+            {
+                $Type : 'UI.DataField',
+                Value : persona_soporte.Nombre,
+                Label : '{i18n>Personasoporte}',
             },
             {
                 $Type : 'UI.DataField',
@@ -52,23 +61,47 @@ annotate service.Solicitudes with @(
     UI.LineItem : [
         {
             $Type : 'UI.DataField',
-            Label : 'createdAt',
+            Value : createdBy,
+        },
+        {
+            $Type : 'UI.DataField',
+            Label : 'CreatedAt',
             Value : createdAt,
         },
         {
             $Type : 'UI.DataField',
-            Label : 'modifiedAt',
+            Label : 'ModifiedAt',
             Value : modifiedAt,
         },
         {
             $Type : 'UI.DataField',
-            Label : 'motivo',
+            Label : '{i18n>Motivo1}',
             Value : motivo,
         },
         {
             $Type : 'UI.DataField',
-            Label : 'usuario',
+            Label : '{i18n>Usuario1}',
             Value : usuario,
+        },
+        {
+            $Type : 'UI.DataField',
+            Value : estado.Description,
+            Label : '{i18n>Estadosolicitud}',
+        },
+        {
+            $Type : 'UI.DataField',
+            Value : urgencia.Nombre,
+            Label : '{i18n>Urgencia}',
+        },
+        {
+            $Type : 'UI.DataField',
+            Value : persona_soporte.Nombre,
+            Label : '{i18n>Personasoporte}',
+        },
+        {
+            $Type : 'UI.DataField',
+            Value : tipo_solicitud.Nombre,
+            Label : '{i18n>Tiposolicitud}',
         },
     ],
 );
@@ -162,4 +195,8 @@ annotate service.Urgencia with {
         },
         Common.ValueListWithFixedValues : true
 )};
+
+annotate service.Estado with {
+    Description @Common.Text : ID
+};
 
