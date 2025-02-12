@@ -13,9 +13,9 @@ module.exports = async function () {
     // Permitir que los usuarios solo vean sus propias solicitudes.
     // pero si el usuario es "privileged", puede ver todas
     this.before('READ', Solicitudes, async (req) => {
-        if (req.user.id !== "privileged") {
+        //if (req.user.id !== "privileged") {
             req.query.where({ usuario: req.user.id });
-        }
+        //}
     });
 
     // Permitir a los usuarios cambiar el estado solo si la solicitud está cerrada
