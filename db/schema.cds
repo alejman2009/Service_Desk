@@ -2,6 +2,7 @@ namespace Service_Desk;
 
 using { managed } from '@sap/cds/common';
 
+@odata.draft.bypass
 entity Solicitudes : managed
 {
     key ID : UUID;
@@ -15,6 +16,8 @@ entity Solicitudes : managed
     urgencia : Association to one Urgencia;
     comunicaciones : Association to many Comunicaciones on comunicaciones.solicitud = $self;
 }
+
+@odata.draft.bypass
 @cds.odata.valuelist
 entity PersonasSoporte
 {
@@ -25,6 +28,7 @@ entity PersonasSoporte
     solicitudes : Association to many Solicitudes on solicitudes.persona_soporte = $self;
 }
 
+@odata.draft.bypass
 entity Comunicaciones
 {
     key ID : UUID;
@@ -34,6 +38,7 @@ entity Comunicaciones
     key solicitud : Association to one Solicitudes;
 }
 
+@odata.draft.bypass
 @cds.odata.valuelist
 entity TiposDeSolicitud
 {
@@ -41,6 +46,7 @@ entity TiposDeSolicitud
     Nombre : String(128);
 }
 
+@odata.draft.bypass
 @cds.odata.valuelist
 entity Urgencia
 {
@@ -48,6 +54,7 @@ entity Urgencia
     Nombre : String(128);
 }
 
+@odata.draft.bypass
 entity Estado {
     key ID : String(2);
     Description : String(100);
