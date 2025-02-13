@@ -144,10 +144,25 @@ annotate service.Comunicaciones with @(
 );
 
 annotate service.PersonasSoporte with {
-    Nombre @Common.Text : {
+    Nombre @(
+        Common.Text : {
         $value : Apellido1,
         ![@UI.TextArrangement] : #TextFirst
-    }
+    },
+        Common.ValueList : {
+            $Type : 'Common.ValueListType',
+            CollectionPath : 'PersonasSoporte',
+            Parameters : [
+                {
+                    $Type : 'Common.ValueListParameterInOut',
+                    LocalDataProperty : Nombre,
+                    ValueListProperty : 'Nombre',
+                },
+            ],
+            Label : '{i18n>Personahelp}',
+        },
+        Common.ValueListWithFixedValues : true,
+    )
 };
 
 annotate service.Estado with {
@@ -179,6 +194,22 @@ annotate service.Urgencia with {
                 },
             ],
             Label : '{i18n>Urgenciahelp}',
+        },
+        Common.ValueListWithFixedValues : true
+)};
+
+annotate service.TiposDeSolicitud with {
+    Nombre @(Common.ValueList : {
+            $Type : 'Common.ValueListType',
+            CollectionPath : 'TiposDeSolicitud',
+            Parameters : [
+                {
+                    $Type : 'Common.ValueListParameterInOut',
+                    LocalDataProperty : Nombre,
+                    ValueListProperty : 'Nombre',
+                },
+            ],
+            Label : '{i18n>Tipohelp}',
         },
         Common.ValueListWithFixedValues : true
 )};
