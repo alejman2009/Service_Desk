@@ -1,0 +1,310 @@
+_schema-version: '3.1'
+ID: service_desk
+version: 1.0.0
+description: A simple CAP project.
+parameters:
+  deploy_mode: html5-repo
+  enable-parallel-deployments: true
+  subdomain: 4be5e73ftrial
+build-parameters:
+  before-all:
+    - builder: custom
+      commands:
+        - rm -rf build/dist
+        - mkdir -p build/dist
+        - rm -rf build/ui-deployer
+        - mkdir -p build/ui-deployer
+    - builder: custom
+      commands:
+        - npm install --production
+        - >-
+          bash -c "cds -v | grep 'cds-dk' || npm i --production --no-save
+          @sap/cds-dk @sap/mdk-tools"
+        - bash -c "export PATH=$PATH:$(pwd)/node_modules/.bin"
+        - cds build --production
+  after-all:
+    - builder: custom
+      commands:
+        - npm install
+modules:
+  - name: service_desk-servicedesk.editortipossol
+    type: html5
+    path: app/service_desk.editortipossol
+    build-parameters:
+      builder: custom
+      commands:
+        - rm -rf dist-zip dist
+        - npm install
+        - >-
+          npx -p @ui5/cli@^3.0.0 ui5 build --dest dist
+          --include-task=generateCachebusterInfo
+        - mkdir dist-zip
+        - >-
+          bash -c "cd dist && npx bestzip
+          ../dist-zip/servicedeskeditortipossol.zip *"
+      _artifactName: servicedeskeditortipossol.zip
+      supported-platforms: []
+      build-result: dist-zip
+  - name: service_desk-servicedesk.editorurgencia
+    type: html5
+    path: app/service_desk.editorurgencia
+    build-parameters:
+      builder: custom
+      commands:
+        - rm -rf dist-zip dist
+        - npm install
+        - >-
+          npx -p @ui5/cli@^3.0.0 ui5 build --dest dist
+          --include-task=generateCachebusterInfo
+        - mkdir dist-zip
+        - >-
+          bash -c "cd dist && npx bestzip
+          ../dist-zip/servicedeskeditorurgencia.zip *"
+      _artifactName: servicedeskeditorurgencia.zip
+      supported-platforms: []
+      build-result: dist-zip
+  - name: service_desk-servicedesk.servicedeskadmin
+    type: html5
+    path: app/service_desk.servicedeskadmin
+    build-parameters:
+      builder: custom
+      commands:
+        - rm -rf dist-zip dist
+        - npm install
+        - >-
+          npx -p @ui5/cli@^3.0.0 ui5 build --dest dist
+          --include-task=generateCachebusterInfo
+        - mkdir dist-zip
+        - >-
+          bash -c "cd dist && npx bestzip
+          ../dist-zip/servicedeskservicedeskadmin.zip *"
+      _artifactName: servicedeskservicedeskadmin.zip
+      supported-platforms: []
+      build-result: dist-zip
+  - name: service_desk-servicedesk.servicedeskuser
+    type: html5
+    path: app/service_desk.servicedeskuser
+    build-parameters:
+      builder: custom
+      commands:
+        - rm -rf dist-zip dist
+        - npm install
+        - >-
+          npx -p @ui5/cli@^3.0.0 ui5 build --dest dist
+          --include-task=generateCachebusterInfo
+        - mkdir dist-zip
+        - >-
+          bash -c "cd dist && npx bestzip
+          ../dist-zip/servicedeskservicedeskuser.zip *"
+      _artifactName: servicedeskservicedeskuser.zip
+      supported-platforms: []
+      build-result: dist-zip
+  - name: service_desk-db-deployer
+    type: hdb
+    path: gen/db
+    parameters:
+      buildpack: nodejs_buildpack
+    build-parameters:
+      builder: npm
+      ignore:
+        - node_modules
+        - package-lock.json
+    requires:
+      - name: service_desk-service-uaa
+      - name: service_desk-service-db
+  - name: service_desk-srv
+    type: nodejs
+    path: gen/srv
+    parameters:
+      memory: 256MB
+    provides:
+      - name: srv-api
+        properties:
+          srv-url: ${default-url}
+    build-parameters:
+      builder: npm
+      ignore:
+        - node_modules
+        - package-lock.json
+    requires:
+      - name: service_desk-service-uaa
+      - name: service_desk-service-db
+      - name: service_desk-service-destination
+      - name: service_desk-service-metadata
+      - name: service_desk-service-connectivity
+      - name: service_desk-service-logs
+  - name: service_desk-aux-destinations
+    type: com.sap.application.content
+    parameters:
+      content:
+        subaccount:
+          existing_destinations_policy: update
+          destinations:
+            - Authentication: OAuth2UserTokenExchange
+              Name: service_desk-service-uaa
+              ServiceInstanceName: service_desk-uaa
+              ServiceKeyName: service_desk-uaa-key
+              sap.cloud.service: lcap.service_desk
+            - Authentication: OAuth2UserTokenExchange
+              Name: service_desk-app-srv
+              TokenServiceInstanceName: service_desk-uaa
+              TokenServiceKeyName: service_desk-uaa-key
+              URL: ~{srv-api/srv-url}
+              sap.cloud.service: lcap.service_desk
+            - Name: service_desk-service-html5-apps-repo-host
+              ServiceInstanceName: service_desk-html5-apps-repo-host
+              ServiceKeyName: service_desk-html5-apps-repo-host-key
+              sap.cloud.service: lcap.service_desk
+            - Authentication: OAuth2UserTokenExchange
+              Name: service_desk-ServiceDeskAdmin
+              TokenServiceInstanceName: service_desk-uaa
+              TokenServiceKeyName: service_desk-uaa-key
+              URL: ~{srv-api/srv-url}/service/ServiceDeskAdmin
+              sap.cloud.service: lcap.service_desk
+              sap.applicationdevelopment.actions.enabled: false
+              sap.build.usage: CAP
+              sap.processautomation.enabled: false
+              HTML5.DynamicDestination: false
+              WebIDEEnabled: false
+              MobileEnabled: false
+              AppgyverEnabled: false
+            - Authentication: OAuth2UserTokenExchange
+              Name: service_desk-ServiceDeskUser
+              TokenServiceInstanceName: service_desk-uaa
+              TokenServiceKeyName: service_desk-uaa-key
+              URL: ~{srv-api/srv-url}/service/ServiceDeskUser
+              sap.cloud.service: lcap.service_desk
+              sap.applicationdevelopment.actions.enabled: false
+              sap.build.usage: CAP
+              sap.processautomation.enabled: false
+              HTML5.DynamicDestination: false
+              WebIDEEnabled: false
+              MobileEnabled: false
+              AppgyverEnabled: false
+    build-parameters:
+      no-source: true
+    requires:
+      - name: service_desk-service-uaa
+        parameters:
+          service-key:
+            name: service_desk-uaa-key
+      - name: srv-api
+      - name: service_desk-service-html5-apps-repo-host
+        parameters:
+          service-key:
+            name: service_desk-html5-apps-repo-host-key
+      - name: service_desk-service-destination
+        parameters:
+          content-target: true
+  - name: service_desk-launchpad
+    type: html5
+    path: build/launchpad
+    build-parameters:
+      builder: custom
+      commands:
+        - npm install
+        - >-
+          npx -p @ui5/cli@^3.0.0 ui5 build --dest dist
+          --include-task=generateCachebusterInfo
+        - bash -c "cd dist && npx bestzip ../../../build/dist/launchpad.zip *"
+        - rm -rf dist
+      _artifactName: launchpad.zip
+      supported-platforms: []
+      build-result: ../../build/dist
+  - name: service_desk-aux-ui-deployer
+    type: com.sap.application.content
+    path: build/ui-deployer
+    build-parameters:
+      build-result: resources
+      requires:
+        - name: service_desk-servicedesk.editortipossol
+          artifacts:
+            - servicedeskeditortipossol.zip
+          target-path: resources
+        - name: service_desk-servicedesk.editorurgencia
+          artifacts:
+            - servicedeskeditorurgencia.zip
+          target-path: resources
+        - name: service_desk-servicedesk.servicedeskadmin
+          artifacts:
+            - servicedeskservicedeskadmin.zip
+          target-path: resources
+        - name: service_desk-servicedesk.servicedeskuser
+          artifacts:
+            - servicedeskservicedeskuser.zip
+          target-path: resources
+        - name: service_desk-launchpad
+          artifacts:
+            - launchpad.zip
+          target-path: resources
+    requires:
+      - name: service_desk-service-html5-apps-repo-host
+        parameters:
+          content-target: true
+resources:
+  - type: org.cloudfoundry.managed-service
+    name: service_desk-service-uaa
+    parameters:
+      service: xsuaa
+      service-plan: application
+      service-name: service_desk-uaa
+      path: xs-security.json
+      config:
+        oauth2-configuration:
+          redirect-uris:
+            - https://${subdomain}.launchpad.${default-domain}/login/*
+            - https://${subdomain}.${default-domain}/login/*
+          credential-types:
+            - binding-secret
+            - x509
+        xsappname: service_desk-${space}
+        role-collections:
+          - description: Admin
+            name: service_desk-Admin-${space}
+            role-template-references:
+              - $XSAPPNAME.Admin
+          - description: User
+            name: service_desk-User-${space}
+            role-template-references:
+              - $XSAPPNAME.User
+  - type: org.cloudfoundry.managed-service
+    name: service_desk-service-db
+    parameters:
+      service: hana
+      service-plan: hdi-shared
+      service-name: service_desk-db
+  - type: org.cloudfoundry.managed-service
+    name: service_desk-service-destination
+    parameters:
+      service: destination
+      service-plan: lite
+      service-name: service_desk-destination
+      config:
+        HTML5Runtime_enabled: true
+        version: 1.0.0
+  - type: org.cloudfoundry.user-provided-service
+    name: service_desk-service-metadata
+    parameters:
+      service: metadata
+      service-plan: standard
+      service-name: service_desk-metadata
+      config:
+        default-domain: ${default-domain}
+  - type: org.cloudfoundry.managed-service
+    name: service_desk-service-connectivity
+    parameters:
+      service: connectivity
+      service-plan: lite
+      service-name: service_desk-connectivity
+  - type: org.cloudfoundry.managed-service
+    name: service_desk-service-logs
+    parameters:
+      service: application-logs
+      service-plan: lite
+      service-name: service_desk-logs
+  - type: org.cloudfoundry.managed-service
+    name: service_desk-service-html5-apps-repo-host
+    parameters:
+      service: html5-apps-repo
+      service-plan: app-host
+      service-name: service_desk-html5-apps-repo-host

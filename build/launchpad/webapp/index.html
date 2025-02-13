@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title> Application Overview </title>
+    <script src="https://ui5.sap.com/1.132.1/resources/sap-ui-core.js" 
+            id="sap-ui-bootstrap"
+            data-sap-ui-theme="sap_horizon"
+            data-sap-ui-bindingSyntax="complex" 
+            data-sap-ui-xx-bindingSyntax="complex"
+            data-sap-ui-resourceroots='{"assets": "assets"}' 
+            data-sap-ui-libs="sap.m,sap.uxap,sap.ui.layout,sap.f">
+    </script>
+    <link rel="stylesheet" href="assets/preview.css">
+</head>
+
+<body id="body" class="sapUiBody">
+    <script>
+        "use strict";
+        sap.ui.localResources("assets");
+        (function (jQuery, App, Page) {
+            sap.ui.getCore().attachInit(function () {
+                sap.ui.define([
+                    "sap/ui/core/mvc/Controller",
+                    "sap/ui/model/json/JSONModel"
+                ], function (Controller, JSONModel) {
+                    return Controller.extend("PreviewController", {
+                        onInit: function () {
+
+                            const data = {"Services":[{"ServiceName":"ServiceDeskAdmin","DetailsURL":"./service/ServiceDeskAdmin/","Metadata":"./service/ServiceDeskAdmin/$metadata","Entities":[{"Name":"Solicitudes","URL":"./service/ServiceDeskAdmin/Solicitudes","FioriURL":""},{"Name":"Comunicaciones","URL":"./service/ServiceDeskAdmin/Comunicaciones","FioriURL":""},{"Name":"PersonasSoporte","URL":"./service/ServiceDeskAdmin/PersonasSoporte","FioriURL":""},{"Name":"TiposDeSolicitud","URL":"./service/ServiceDeskAdmin/TiposDeSolicitud","FioriURL":""},{"Name":"Urgencia","URL":"./service/ServiceDeskAdmin/Urgencia","FioriURL":""},{"Name":"Estado","URL":"./service/ServiceDeskAdmin/Estado","FioriURL":""}],"EntitiesCount":6},{"ServiceName":"ServiceDeskUser","DetailsURL":"./service/ServiceDeskUser/","Metadata":"./service/ServiceDeskUser/$metadata","Entities":[{"Name":"Solicitudes","URL":"./service/ServiceDeskUser/Solicitudes","FioriURL":""},{"Name":"Comunicaciones","URL":"./service/ServiceDeskUser/Comunicaciones","FioriURL":""},{"Name":"PersonasSoporte","URL":"./service/ServiceDeskUser/PersonasSoporte","FioriURL":""},{"Name":"Urgencia","URL":"./service/ServiceDeskUser/Urgencia","FioriURL":""},{"Name":"TiposDeSolicitud","URL":"./service/ServiceDeskUser/TiposDeSolicitud","FioriURL":""},{"Name":"Estado","URL":"./service/ServiceDeskUser/Estado","FioriURL":""}],"EntitiesCount":6}]}
+                            this.getView().setModel(new JSONModel(data));
+                        }
+                    });
+                });
+                var oApp = new App()
+                var previewView = sap.ui.view({
+                    viewName: "assets.Preview",
+                    type: sap.ui.core.mvc.ViewType.XML
+                });
+                oApp.addPage(new Page({
+                    content: [previewView],
+                    showHeader: false
+                })).placeAt("content");
+            });
+
+        }(jQuery, sap.m.App, sap.m.Page));
+    </script>
+    <div id="content"></div>
+</body>
+
+</html>

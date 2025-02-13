@@ -1,0 +1,2 @@
+sap.ui.require(["sap/fe/test/JourneyRunner","servicedesk/editorurgencia/test/integration/FirstJourney","servicedesk/editorurgencia/test/integration/pages/UrgenciaList","servicedesk/editorurgencia/test/integration/pages/UrgenciaObjectPage"],function(e,r,i,t){"use strict";var e=new e({launchUrl:sap.ui.require.toUrl("servicedesk/editorurgencia")+"/index.html"});e.run({pages:{onTheUrgenciaList:i,onTheUrgenciaObjectPage:t}},r.run)});
+//# sourceMappingURL=opaTests.qunit.js.map

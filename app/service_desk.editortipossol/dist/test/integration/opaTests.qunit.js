@@ -1,0 +1,2 @@
+sap.ui.require(["sap/fe/test/JourneyRunner","servicedesk/editortipossol/test/integration/FirstJourney","servicedesk/editortipossol/test/integration/pages/TiposDeSolicitudList","servicedesk/editortipossol/test/integration/pages/TiposDeSolicitudObjectPage"],function(e,i,t,s){"use strict";var e=new e({launchUrl:sap.ui.require.toUrl("servicedesk/editortipossol")+"/index.html"});e.run({pages:{onTheTiposDeSolicitudList:t,onTheTiposDeSolicitudObjectPage:s}},i.run)});
+//# sourceMappingURL=opaTests.qunit.js.map

@@ -1,0 +1,5 @@
+{
+  "ProjectOverviewURL": "https://4be5e73ftrial.launchpad.cfapps.us10.hana.ondemand.com/lcapservice_desk.service_deskLaunchpad-1.0.0/",
+  "DeployedUTCTime": "2025-02-13T14:09:07.051Z",
+  "ApplicationLogURL": "https://logs.cf.us10-001.hana.ondemand.com/app/dashboards#/view/Overview?_g=(filters:!((query:(match_phrase:(component_name:service_desk-srv)))))"
+}

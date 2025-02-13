@@ -1,48 +1,33 @@
 {
-  "xsappname": "servicedesk-app",
-  "tenant-mode": "shared",
   "scopes": [
     {
       "name": "$XSAPPNAME.Admin",
-      "description": "Acceso completo a solicitudes y administración."
+      "description": "Admin"
     },
     {
       "name": "$XSAPPNAME.User",
-      "description": "Acceso a la gestión de sus propias solicitudes."
+      "description": "User"
     }
   ],
+  "attributes": [],
   "role-templates": [
     {
       "name": "Admin",
-      "description": "Rol de Administrador",
-      "scope-references": ["$XSAPPNAME.Admin"]
+      "description": "generated",
+      "scope-references": [
+        "$XSAPPNAME.Admin"
+      ],
+      "attribute-references": []
     },
     {
       "name": "User",
-      "description": "Rol de Usuario",
-      "scope-references": ["$XSAPPNAME.User"]
+      "description": "generated",
+      "scope-references": [
+        "$XSAPPNAME.User"
+      ],
+      "attribute-references": []
     }
   ],
-  "role-collections": [
-    {
-      "name": "servicedesk.servicedeskadmin",
-      "description": "Acceso solo para administradores",
-      "role-template-references": ["Admin"]
-    },
-    {
-      "name": "servicedesk.servicedeskuser",
-      "description": "Acceso solo para usuarios autenticados",
-      "role-template-references": ["User"]
-    },
-    {
-      "name": "servicedesk.editortipossol",
-      "description": "Acceso a la edición de Tipos de Solicitud",
-      "role-template-references": ["Admin"]
-    },
-    {
-      "name": "servicedesk.editorurgencia",
-      "description": "Acceso a la edición de Urgencias",
-      "role-template-references": ["Admin"]
-    }
-  ]
+  "xsappname": "service_desk",
+  "tenant-mode": "dedicated"
 }

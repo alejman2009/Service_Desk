@@ -1,0 +1,2 @@
+sap.ui.define(["sap/fe/test/ListReport"],function(t){"use strict";var e={actions:{},assertions:{}};return new t({appId:"servicedesk.editortipossol",componentId:"TiposDeSolicitudList",contextPath:"/TiposDeSolicitud"},e)});
+//# sourceMappingURL=TiposDeSolicitudList.js.map

@@ -72,6 +72,18 @@
       "label": "Enable Discovery and Deploy Service_Desk",
       "taskType": "Deploy",
       "enableDiscovery": "true"
+    },
+    {
+      "type": "build.mta",
+      "label": "Build MTA: service_desk - PT",
+      "taskType": "Build",
+      "projectPath": "/home/user/projects/Service_Desk",
+      "extensions": [],
+      "ui5version": "1.132.1",
+      "ui5theme": "sap_horizon",
+      "vendorDependency": false,
+      "buildCodeServicePlan": false,
+      "subdomain": "service_desk"
     }
   ]
 }
