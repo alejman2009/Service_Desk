@@ -28,6 +28,7 @@ annotate service.Urgencia with @(
             $Type : 'UI.DataField',
             Label : 'Nombre',
             Value : Nombre,
+            ![@UI.Importance] : #High,
         },
         {
             $Type : 'UI.DataField',
@@ -36,4 +37,11 @@ annotate service.Urgencia with @(
         },
     ],
 );
+
+annotate service.Urgencia with {
+    Nombre @(
+        UI.MultiLineText : true,
+        Common.FieldControl : #Mandatory,
+    )
+};
 

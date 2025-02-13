@@ -28,6 +28,7 @@ annotate service.TiposDeSolicitud with @(
             $Type : 'UI.DataField',
             Label : 'Nombre',
             Value : Nombre,
+            ![@UI.Importance] : #High,
         },
         {
             $Type : 'UI.DataField',
@@ -36,4 +37,11 @@ annotate service.TiposDeSolicitud with @(
         },
     ],
 );
+
+annotate service.TiposDeSolicitud with {
+    Nombre @(
+        UI.MultiLineText : true,
+        Common.FieldControl : #Mandatory,
+    )
+};
 
